@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Login from './components/Login';
+import NotesList from './components/NotesList';
 
 function App() {
+  const [notes, setNotes] = useState([]);  // Inicializamos como un array vacío
+  const [loggedIn, setLoggedIn] = useState(false);
+
+
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
+
+  const handleAddNote = (newNote) => {
+    setNotes([...notes, newNote]);  // Agregamos una nueva nota al array de notas
+  };
+
+  const handleDeleteNote = (id) => {
+    setNotes(notes.filter(note => note.id !== id));  // Eliminamos la nota por su ID
+  };
+
+  const handleEditNote = (updatedNote) => {
+    setNotes(notes.map(note => (note.id === updatedNote.id ? updatedNote : note)));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {loggedIn ? (
+        <NotesList 
+          notes={notes} 
+          onAddNote={handleAddNote} 
+          onDeleteNote={handleDeleteNote} 
+          onEditNote={handleEditNote} 
+        />
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
     </div>
   );
 }
