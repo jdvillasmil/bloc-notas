@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-
+import '../styles/Login.css'; //importando archivo de estilos
 
 const Login = ({ onLogin }) => {
   //Estados locales para el nombre de usuario, la contraseña y los errores
@@ -19,26 +19,26 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div>
-      <h2>Iniciar Sesión</h2>
-      {/* Formulario de login */}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Usuario"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)} // Actualizamos el estado del nombre de usuario
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)} // Actualizamos el estado de la contraseña
-        />
-        <button type="submit">Login</button>
-        {/* Mostramos el error si las credenciales no son válidas */}
+    <div className="login-container">
+      <div className="login-box">
+        <h2>Iniciar Sesión</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Usuario"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">Login</button>
+        </form>
         {error && <p>{error}</p>}
-      </form>
+      </div>
     </div>
   );
 };
