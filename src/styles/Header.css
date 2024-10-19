@@ -2,9 +2,12 @@
 
 .app-header {
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.1);  /* Fondo semitransparente */
-  text-align: center;
+  background-color: rgba(44, 62, 80, 0.9);  /* Azul oscuro con transparencia */
   color: white;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra sutil */
+  border-bottom-left-radius: 15px;  /* Bordes redondeados */
+  border-bottom-right-radius: 15px;
   font-size: 2rem;
 }
 

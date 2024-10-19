@@ -1,46 +1,31 @@
+import React, { useState } from "react";
+import NoteItem from "./NoteItem";
+import List from "@mui/material/List";
+import InboxIcon from '@mui/icons-material/Inbox';
 
-import React, { useState } from 'react';
-import NoteItem from './NoteItem';
-import NoteForm from './NoteForm';
-import Popup from './Popup';
+const NotesList = ({ notes = [], onSelect, onDeleteNote }) => {
 
-
-const NotesList = ({ notes = [], onAddNote, onDeleteNote, onEditNote }) => {
-  const [selectedNote, setSelectedNote] = useState(null);  // Nota seleccionada para editar
-
-  const handleSaveNote = (updatedNote) => {
-    onEditNote(updatedNote);  // Llamamos a la función para editar la nota
-    setSelectedNote(null);  // Cerramos el popup después de guardar
-  };
+  if (!notes.length) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center', opacity: 0.5 }}>
+        <h2 style={{ fontSize: 24, textAlign: 'center', margin: 0 }}>Empty list</h2>
+        <h3 style={{ fontSize: 16, textAlign: 'center', margin: 0 }}>Add a note using the form</h3>
+        <InboxIcon style={{ fontSize: 64 }} />
+      </div>
+    )
+  }
 
   return (
-    <div>
-      <NoteForm onAddNote={onAddNote} />
-      <div>
-        {notes.length > 0 ? (
-          notes.map((note) => (
-            <NoteItem 
-              key={note.id}
-              note={note}
-              onDelete={onDeleteNote}
-              onEdit={onEditNote}
-              onSelect={() => setSelectedNote(note)}  // Seleccionamos la nota para editarla en el popup
-            />
-          ))
-        ) : (
-          <p>No hay notas disponibles</p>
-        )}
-      </div>
-
-      {/* Renderizamos el popup si hay una nota seleccionada */}
-      {selectedNote && (
-        <Popup 
-          note={selectedNote} 
-          onClose={() => setSelectedNote(null)} 
-          onSave={handleSaveNote}  // Guardamos los cambios de la nota editada
+    <List sx={{ pt: 0 }}>
+      {notes.map((note) => (
+        <NoteItem
+          key={note.id}
+          note={note}
+          onDelete={onDeleteNote}
+          onSelect={() => onSelect(note)} // Seleccionamos la nota para editarla en el popup
         />
-      )}
-    </div>
+      ))}
+    </List>
   );
 };
 

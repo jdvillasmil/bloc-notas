@@ -1,20 +1,19 @@
-
-import React, { useState } from 'react';
-import '../styles/Login.css'; //importando archivo de estilos
+import React, { useState } from "react";
+import "../styles/Login.css"; //importando archivo de estilos
 
 const Login = ({ onLogin }) => {
   //Estados locales para el nombre de usuario, la contraseña y los errores
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   // Función que se ejecuta al enviar el formulario
   const handleSubmit = (e) => {
-    e.preventDefault(); 
-    if (username === 'admin' && password === '1234') {
+    e.preventDefault();
+    if (username === "admin" && password === "1234") {
       onLogin(); // Llamamos la función onLogin si las credenciales son correctas
     } else {
-      setError('Credenciales incorrectas'); 
+      setError("Credenciales incorrectas");
     }
   };
 

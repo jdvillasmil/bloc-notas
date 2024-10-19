@@ -1,30 +1,25 @@
 // src/components/NoteItem.js
 // Componente individual para mostrar cada nota
-import React from 'react';
+import React from "react";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemButton from "@mui/material/ListItemButton";
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const NoteItem = ({ note, onDelete, onEdit, onSelect }) => {
-  // Definimos los tamaños máximos para ancho y alto
-  const MAX_WIDTH = 200;
-  const MAX_HEIGHT = 100;
-
+const NoteItem = ({ note, onDelete, onSelect }) => {
   return (
-    <div 
-      onClick={onSelect} // Seleccionamos la nota al hacer clic
-      style={{
-        maxWidth: `${MAX_WIDTH}px`, // Definimos el ancho máximo
-        maxHeight: `${MAX_HEIGHT}px`, // Definimos el alto máximo
-        overflow: 'hidden', // Recortamos el contenido si excede el tamaño
-        border: '1px solid black',
-        margin: '10px',
-        padding: '10px',
-      }}
-    >
-      <h3>{note.title}</h3> {/* Título de la nota */}
-      <p>{note.content}</p> {/* Contenido de la nota */}
-      {/* Botones para editar o eliminar la nota */}
-      <button onClick={() => onEdit(note)}>Editar</button>
-      <button onClick={() => onDelete(note.id)}>Eliminar</button>
-    </div>
+    <ListItem disableGutters
+      secondaryAction={
+        <IconButton onClick={() => onDelete(note.id)}>
+          <DeleteIcon />
+        </IconButton>
+      }
+      style={{ backgroundColor: "rgba(255,255,255,.2)" }}>
+      <ListItemButton onClick={onSelect}>
+        <ListItemText primary={note.title} secondary={note.content} />
+      </ListItemButton>
+    </ListItem>
   );
 };
 
