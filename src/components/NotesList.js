@@ -2,37 +2,44 @@
 import React, { useState } from 'react';
 import NoteItem from './NoteItem';
 import NoteForm from './NoteForm';
+import Popup from './Popup';
+
 
 const NotesList = ({ notes = [], onAddNote, onDeleteNote, onEditNote }) => {
-  // Estado para manejar qué nota está seleccionada (para mostrarla en un popup)
-  const [selectedNote, setSelectedNote] = useState(null);
+  const [selectedNote, setSelectedNote] = useState(null);  // Nota seleccionada para editar
+
+  const handleSaveNote = (updatedNote) => {
+    onEditNote(updatedNote);  // Llamamos a la función para editar la nota
+    setSelectedNote(null);  // Cerramos el popup después de guardar
+  };
 
   return (
     <div>
-      {/* Formulario para agregar una nueva nota */}
       <NoteForm onAddNote={onAddNote} />
-      
-      {/* Lista de notas */}
       <div>
         {notes.length > 0 ? (
-          // Si hay notas, iteramos sobre ellas usando map
           notes.map((note) => (
             <NoteItem 
               key={note.id}
               note={note}
               onDelete={onDeleteNote}
               onEdit={onEditNote}
-              onSelect={() => setSelectedNote(note)}
+              onSelect={() => setSelectedNote(note)}  // Seleccionamos la nota para editarla en el popup
             />
           ))
         ) : (
-          // Si no hay notas, mostramos un mensaje
           <p>No hay notas disponibles</p>
         )}
       </div>
 
-      {/* Popup para ver la nota completa */}
-      {selectedNote && <Popup note={selectedNote} onClose={() => setSelectedNote(null)} />}
+      {/* Renderizamos el popup si hay una nota seleccionada */}
+      {selectedNote && (
+        <Popup 
+          note={selectedNote} 
+          onClose={() => setSelectedNote(null)} 
+          onSave={handleSaveNote}  // Guardamos los cambios de la nota editada
+        />
+      )}
     </div>
   );
 };
