@@ -1,7 +1,10 @@
 
 import React, { useState } from 'react';
 import Login from './components/Login';
+import Header from './components/Header';  
+import Footer from './components/Footer';  
 import NotesList from './components/NotesList';
+import './styles/App.css';  
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
