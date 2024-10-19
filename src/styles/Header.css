@@ -1,0 +1,31 @@
+/* src/styles/Header.css */
+
+.app-header {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);  /* Fondo semitransparente */
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.animated-message {
+  font-family: 'Lobster', cursive;
+  font-size: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid white;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+  

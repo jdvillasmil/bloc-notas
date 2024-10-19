@@ -1,0 +1,73 @@
+/* src/styles/Login.css */
+
+/* Estilos para centrar el contenedor del formulario */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupar toda la altura del viewport (pantalla) */
+  background-color: #f4f4f4; /* Color de fondo opcional para la página */
+}
+
+/* Estilo del cuadro que contiene el formulario */
+.login-box {
+  background-color: white; /* Color de fondo del cuadro */
+  padding: 40px; /* Espaciado interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  border-radius: 10px; /* Bordes redondeados */
+  width: 300px; /* Ancho fijo del cuadro */
+  text-align: center; /* Centrar texto dentro del cuadro */
+}
+
+/* Estilos para el título del formulario */
+h2 {
+  font-family: 'Lobster', cursive; /* Aplicamos la fuente Lobster */
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+/* Estilo para los campos de entrada (inputs) */
+.login-box input {
+  width: 100%; /* El input ocupa todo el ancho disponible */
+  padding: 10px; /* Espaciado interno */
+  margin-bottom: 15px; /* Espaciado entre los inputs */
+  border: 1px solid #ccc; /* Borde del input */
+  border-radius: 5px; /* Bordes redondeados */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Estilo para el botón de login */
+.login-box button {
+  width: 100%; /* El botón ocupa todo el ancho */
+  padding: 10px;
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin bordes */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  box-sizing: border-box;
+}
+
+/* Efecto hover para el botón */
+.login-box button:hover {
+  background-color: #0056b3; /* Color más oscuro al hacer hover */
+}
+
+/* Estilo opcional para el mensaje de error */
+.login-box p {
+  color: red; /* Texto en rojo para el mensaje de error */
+}
+
+/* src/styles/Login.css */
+
+/* Fondo con el gradiente de uigradients */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #4568DC; /* Fallback para navegadores antiguos */
+  background: -webkit-linear-gradient(to right, #B06AB3, #4568DC); /* Compatibilidad con Chrome y Safari */
+  background: linear-gradient(to right, #B06AB3, #4568DC); /* Compatibilidad con todos los navegadores modernos */
+}

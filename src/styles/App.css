@@ -1,0 +1,64 @@
+/* src/styles/App.css */
+
+/* Estilo global del contenedor principal de la app */
+.app {
+  min-height: 100vh;  /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* Distribuye el espacio entre header, contenido y footer */
+  background-color: #f4f4f4;  /* Color de fondo por defecto */
+  font-family: 'Arial', sans-serif;  /* Fuente por defecto */
+}
+
+/* Estilo para el contenido principal de la aplicación */
+.main-content {
+  flex-grow: 1;  /* Ocupa todo el espacio entre el header y el footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Estilo opcional para mejorar la apariencia del cuerpo de la página */
+body {
+  margin: 0;
+  padding: 0;
+  background: #4568DC;  /* Fallback para navegadores antiguos */
+  background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #B06AB3, #4568DC);  /* Compatibilidad con navegadores modernos */
+  color: #333;  /* Color del texto */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Ajustes para asegurar que el footer esté siempre visible al final */
+.app-footer {
+  background-color: rgba(255, 255, 255, 0.1);  /* Fondo semitransparente */
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Estilos adicionales para el header, si es necesario */
+.app-header {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);  /* Fondo semitransparente */
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+  font-family: 'Lobster', cursive;  /* Fuente personalizada del header */
+}
+
+/* Adaptaciones para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .app-header {
+    font-size: 1.4rem;  /* Ajusta el tamaño del texto en pantallas pequeñas */
+  }
+  
+  .app-footer {
+    font-size: 0.8rem;  /* Ajusta el tamaño del texto del footer en pantallas pequeñas */
+  }
+}

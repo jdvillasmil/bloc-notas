@@ -1,0 +1,11 @@
+/* src/styles/Footer.css */
+
+.app-footer {
+  background-color: rgba(255, 255, 255, 0.1);  /* Fondo semitransparente */
+  text-align: center;
+  color: white;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
